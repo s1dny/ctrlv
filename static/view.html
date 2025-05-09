@@ -8,21 +8,23 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <header>
-        <p style="display: flex; gap: 32px;">
-            <span>{{CREATION_TIME}} UTC</span>
-            <span>{{PASTE_SIZE}}</span>
-        </p>
-        <div class="actions">
-            <button id="copy-btn" class="btn">copy</button>
-            <button id="raw-btn" class="btn">raw</button>
-            <button id="home-btn" class="btn">home</button>
-        </div>
-    </header>
-    
-    <div id="toast" class="toast">copied to clipboard</div>
-    
-    <pre><code>{{PASTE_CONTENT}}</code></pre>
+    <div class="container">
+        <header>
+            <p style="display: flex; gap: 32px;">
+                <span>{{CREATION_TIME}} UTC</span>
+                <span>{{PASTE_SIZE}}</span>
+            </p>
+            <div class="actions">
+                <button id="copy-btn" class="btn">copy</button>
+                <button id="raw-btn" class="btn">raw</button>
+                <button id="home-btn" class="btn">home</button>
+            </div>
+        </header>
+        
+        <div id="toast" class="toast">copied to clipboard</div>
+        
+        <pre><code>{{PASTE_CONTENT}}</code></pre>
+    </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script>

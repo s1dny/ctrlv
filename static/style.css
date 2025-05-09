@@ -1,5 +1,8 @@
 * {
+    box-sizing: border-box;
     color: #ddd;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -7,7 +10,6 @@ body {
     line-height: 1.5;
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
     background-color: #1a1b26;
 }
 
@@ -16,8 +18,41 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    margin-top: 20px;
     border-bottom: 1px solid #24283b;
     padding-bottom: 10px;
+}
+
+.container {
+    padding: 4% 4%;
+}
+
+ul {
+  margin-bottom: 20px;
+  padding-left: 20px;
+  margin-left: 0;
+}
+
+li {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 300px;
+    padding: 10px;
+    font-family: monospace;
+    font-size: 16px;
+    border: 1px solid #24283b;
+    border-radius: 6px;
+    background-color: #1a1b26;
+    resize: vertical;
+    margin-bottom: 16px;
+}
+
+textarea:focus {
+    outline: 2px solid #292e42;
 }
 
 .btn {
@@ -33,38 +68,13 @@ header {
     border: none;
 }
 
-p {
-    font-size: 16px;
-}
-
 .btn:hover {
     background-color: #24283b;
 }
 
+p,
 pre {
     font-size: 16px;
-}
-
-textarea {
-    background-color: #1a1b26;
-    width: 100%;
-    min-height: 300px;
-    padding: 10px;
-    font-family: monospace;
-    font-size: 16px;
-    border: 1px solid #24283b;
-    margin-bottom: 16px;
-    border-radius: 6px;
-    resize: vertical;
-}
-
-textarea:focus {
-    outline: 2px solid #292e42;
-}
-
-li {
-    font-size: 16px;
-    margin-bottom: 6px;
 }
 
 code {
@@ -90,4 +100,18 @@ a:hover {
     padding: 10px 20px;
     border: none;
     display: none;
+}
+
+@media (max-width: 550px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .actions {
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 10px;
+    }
 }
