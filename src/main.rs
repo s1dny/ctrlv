@@ -38,16 +38,11 @@ struct PasteForm {
 
 #[tokio::main]
 async fn main() {
-    // initialize tracing
-    tracing_subscriber::fmt::init();
-
     // read the wordlist
     let wordlist_path = PathBuf::from("wordlist.txt");
     let file = File::open(&wordlist_path).expect("Failed to open wordlist.txt");
     let reader = BufReader::new(file);
     let wordlist: Vec<String> = reader.lines().filter_map(Result::ok).collect();
-
-    tracing::info!("Loaded {} words from wordlist", wordlist.len());
 
     // create app state
     let app_state = Arc::new(AppState {
@@ -66,7 +61,7 @@ async fn main() {
 
     // run the server
     let listener = TcpListener::bind("0.0.0.0:3000").await.unwrap();
-    tracing::info!("Listening on http://localhost:3000");
+    println!("Listening on http://localhost:3000");
     axum::serve(listener, app).await.unwrap();
 }
 
