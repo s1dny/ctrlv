@@ -6,7 +6,7 @@ use axum::{
     Form, Router,
 };
 use chrono::{DateTime, Utc};
-use rand::seq::SliceRandom;
+use rand::prelude::IndexedRandom;
 use serde::Deserialize;
 use std::time::{SystemTime, UNIX_EPOCH};
 use std::{
@@ -59,8 +59,8 @@ async fn main() {
     let app = Router::new()
         .route("/", get(home_handler))
         .route("/paste", post(create_paste_handler))
-        .route("/:id", get(view_paste_handler))
-        .route("/:id/raw", get(raw_paste_handler))
+        .route("/{id}", get(view_paste_handler))
+        .route("/{id}/raw", get(raw_paste_handler))
         .nest_service("/static", ServeDir::new("static"))
         .with_state(app_state);
 
@@ -166,7 +166,7 @@ fn get_paste(state: &Arc<AppState>, id: &str) -> Option<Paste> {
 
 // helper function to generate a unique id from two random words
 fn generate_unique_id(state: &Arc<AppState>) -> String {
-    let mut rng = rand::thread_rng();
+    let mut rng = rand::rng();
 
     loop {
         let word1 = state.wordlist.choose(&mut rng).unwrap();
