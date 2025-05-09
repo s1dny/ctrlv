@@ -14,7 +14,8 @@
 
 ## Prerequisites
 
-- Rust and Cargo installed (https://rustup.rs/)
+- Rust and Cargo installed (https://rustup.rs/) for local development
+- Docker and Docker Compose (optional, for containerized deployment)
 
 ## Development
  - Run the application with
@@ -23,3 +24,14 @@
     ```
 
  - Open your browser and navigate to: http://localhost:3000
+
+## Deployment
+- Build and start the container
+   ```bash
+   docker compose up --build
+   ```
+
+- Run in detached mode
+   ```bash
+   docker compose up -d
+   ```
